@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   # Almost every application defines a route for the root path ("/") at the top of this file.
   # root "articles#index"
+
+  namespace :api do
+    resources :hello, only: [:index]
+  end
 end
