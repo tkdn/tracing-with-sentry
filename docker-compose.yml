@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    image: postgres:12.4
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: sample_development
+      TZ: Asia/Tokyo
+    volumes:
+      - ./docker/postgresql/data:/var/lib/postgresql/data
+      - ./docker/postgresql/initdb:/docker-entrypoint-initdb.d
