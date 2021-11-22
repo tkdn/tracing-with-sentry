@@ -17,6 +17,9 @@ async function fetchAllArticles() {
       'parent-id': getSpanId(),
     }
   });
+  if (!response.ok) {
+    throw new Error(`Response: ${response.status}`);
+  }
   const data = await response.json();
   return data as { articles: Article[] };
 };
@@ -28,6 +31,9 @@ async function fetchArticle(id: number) {
       'parent-id': getSpanId(),
     }
   });
+  if (!response.ok) {
+    throw new Error(`Response: ${response.status}`);
+  }
   const data = await response.json();
   return data as Article;
 };
